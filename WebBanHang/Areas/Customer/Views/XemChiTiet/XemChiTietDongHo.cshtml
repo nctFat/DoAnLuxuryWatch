@@ -1,0 +1,36 @@
+﻿@{
+    var dongHo = ViewBag.DongHo as WebBanHang.Models.Product;
+}
+<style>
+        .details-table {
+            width: 100%;
+            border-collapse: collapse; /* gộp border */
+        }
+
+        .details-table th, .details-table td {
+            border: 2px solid black; /* đặt border cho ô */
+            padding: 10px; /* đặt padding cho ô */
+            text-align: left; /* căn lề trái cho text */
+        }
+
+        .details-table img {
+            width: 220px;
+            height: 300px;
+        }
+</style>
+<div class="details-container">
+    <table class="details-table">
+        <tr>
+            <th>Tên đồng hồ</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Hình ảnh</th>
+        </tr>
+        <tr>
+            <td>@dongHo.Name</td>
+            <td>@Html.FormatValue(dongHo.Price, "${0:#,##0}")</td>
+            <td>@dongHo.Description</td>
+            <td><img src="/@Url.Content(dongHo.ImageUrl)" alt="Hình ảnh đồng hồ" /></td>
+        </tr>
+    </table>
+</div>
